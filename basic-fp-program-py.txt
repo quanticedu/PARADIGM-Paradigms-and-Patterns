@@ -1,0 +1,39 @@
+from pymonad.tools import curry
+from functools import reduce
+
+nomads = (
+    "Heriot", "Julius", "Lil", "Gabriel", "Benjiman",
+    "Warren", "Ossie", "Alexander", "Conrad", "Benjamin",
+    "Julie", "Katie", "Leona", "Isa", "Caroline",
+    "Sue", "Guadalupe", "Joyce", "George", "Alfreda"
+)
+towns = (
+    "Topermere", "Bucklepoint", "Ivorgate", "Pillfall", "Terrabarrow",
+    "Cinderedge", "Bellbury", "Belvale", "Neddingstein", "Grimmere",
+    "Galliefell", "Ashmire", "Snellport", "Umberton", "Whealingmourne",
+    "Lillmoor", "Juggeredge", "Rookhaben", "Pitchwall", "Broadport",
+    "Toperhaben", "Rainbury", "Ivorystein", "Belgue", "Decafall",
+    "Pneuburn", "Bellhagen", "Bobbingham", "Slatebourne", "Gatterthain"
+)
+
+@curry(2)
+def is_in(x: str, y: str) -> bool:
+    if not x:
+        return True
+
+    idx = (y.lower()
+        .find(x[0].lower()))
+
+    if idx == -1:
+        return False
+
+    return is_in(x[1:], y[:idx] + y[idx + 1:])
+
+@curry(2)
+def settled(towns: tuple[str], 
+        nomad: str) -> tuple[str, bool]:
+    return (nomad, reduce(lambda x, y: x or y, map(is_in(nomad), towns)))
+
+result = map(settled(towns), nomads)
+settlers = filter(lambda x: x[1], result)
+for settler in settlers: print(settler[0])

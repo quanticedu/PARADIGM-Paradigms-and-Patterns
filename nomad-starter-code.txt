@@ -1,0 +1,14 @@
+nomads = (
+    "Heriot", "Julius", "Lil", "Gabriel", "Benjiman",
+    "Warren", "Ossie", "Alexander", "Conrad", "Benjamin",
+    "Julie", "Katie", "Leona", "Isa", "Caroline",
+    "Sue", "Guadalupe", "Joyce", "George", "Alfreda"
+)
+towns = (
+    "Topermere", "Bucklepoint", "Ivorgate", "Pillfall", "Terrabarrow",
+    "Cinderedge", "Bellbury", "Belvale", "Neddingstein", "Grimmere",
+    "Galliefell", "Ashmire", "Snellport", "Umberton", "Whealingmourne",
+    "Lillmoor", "Juggeredge", "Rookhaben", "Pitchwall", "Broadport"
+    "Toperhaben", "Rainbury", "Ivorystein", "Belgue", "Decafall",
+    "Pneuburn", "Bellhagen", "Bobbingham", "Slatebourne", "Gatterthain"
+)
